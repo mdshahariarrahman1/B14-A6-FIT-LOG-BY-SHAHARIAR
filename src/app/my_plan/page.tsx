@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FitLogContext } from "@/context/FitLogContext";
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronDown, X } from "lucide-react";
 
 type SortType = "duration" | "calories" | "rating";
 
@@ -18,7 +18,15 @@ const MyPlanPage = () => {
     return null;
   }
 
-  const { plan, saved } = context;
+  const { plan, setPlan, saved, setSaved } = context;
+
+  const handleRemove = (id: number) => {
+    if (activeTab === "plan") {
+      setPlan((prev) => prev.filter((item) => item.id !== id));
+    } else {
+      setSaved((prev) => prev.filter((item) => item.id !== id));
+    }
+  };
 
   const currentData = activeTab === "plan" ? plan : saved;
 
@@ -168,11 +176,27 @@ const MyPlanPage = () => {
                 </div>
               </div>
               <Link
-                href={`/fitLog/${fitLog.id}`}
+                href={`/fitlog/${fitLog.id}`}
                 className="rounded-lg border border-[#343A45] px-5 py-2 text-center text-sm text-white hover:bg-[#20242B]"
               >
                 View Details
               </Link>
+              <Link
+                href={`/fitlog/${fitLog.id}`}
+                className=" flex items-center rounded-lg border border-[#B7F000] px-5 py-2 text-center text-sm text-[#000000] bg-[#B7F000]"
+              >
+                <span className="pr-1">
+                  <Check size={16} />
+                </span>
+                Mark as Done
+              </Link>
+
+            <button
+            onClick={()=> handleRemove(fitLog.id)} 
+            className="text-[#FFFFFF] cursor-pointer">
+                <X size={26} />
+            </button>
+
             </div>
           ))
         )}

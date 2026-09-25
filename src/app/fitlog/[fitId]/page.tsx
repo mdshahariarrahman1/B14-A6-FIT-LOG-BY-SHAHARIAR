@@ -1,7 +1,6 @@
 import AddToPlan from "@/components/FitLog_Details_Button/AddToButton";
 import SaveForLater from "@/components/FitLog_Details_Button/SaveButton";
 import { IfitLogType } from "@/type/type";
-import {  Bookmark } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 

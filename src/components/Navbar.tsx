@@ -1,11 +1,20 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Logo from "../asste/logo.png";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FitLogContext } from "@/context/FitLogContext";
 
 const NavbarPage = () => {
+  const context = useContext(FitLogContext);
+
   const [active, setActive] = useState("workouts");
+
+  if (!context) {
+    return null;
+  }
+
+  const { plan, saved } = context;
   const Links = (
     <>
       <li
@@ -47,7 +56,7 @@ const NavbarPage = () => {
             <div className="text-[#D1D5DB] flex">
               <p className="text-[16px] pr-3 py-0.5 px-1 font-medium">Plan</p>
               <span className="py-0.5 px-2 rounded-full bg-[#C2F800] text-[16px] text-[#000000]">
-                0
+                {plan.length}
               </span>
             </div>
           </Link>
@@ -56,7 +65,7 @@ const NavbarPage = () => {
             <div className="text-[#9CA3AF] flex">
               <p className="text-[16px] pr-3 py-0.5 px-1 font-medium">Saved</p>
               <div className="py-0.5 px-2 rounded-full bg-[#2D313B] border text-[16px] text-[#D1D5DB]">
-                0
+                {saved.length}
               </div>
             </div>
           </Link>
