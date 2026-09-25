@@ -21,7 +21,7 @@ const MyPlanPage = () => {
 
   return (
     <section className="container mx-auto mb-14 px-4 py-10">
-      {/* Heading */}
+
 
       <h1 className="text-4xl font-bold text-white">MY PLAN</h1>
 
@@ -29,10 +29,7 @@ const MyPlanPage = () => {
         Cap of five lifts for today. Finish them, then load more.
       </p>
 
-      {/* Stats */}
-
       <div className="mt-6 grid grid-cols-1 rounded-2xl border border-[#252A33] bg-[#15181E] md:grid-cols-3">
-        {/* Exercises */}
 
         <div className="border-b border-[#252A33] p-6 md:border-b-0 md:border-r">
           <p className="text-sm text-[#8C929D]">Exercises</p>
@@ -42,8 +39,6 @@ const MyPlanPage = () => {
           </p>
         </div>
 
-        {/* Minutes */}
-
         <div className="border-b border-[#252A33] p-6 md:border-b-0 md:border-r">
           <p className="text-sm text-[#8C929D]">Minutes</p>
 
@@ -52,7 +47,6 @@ const MyPlanPage = () => {
           </p>
         </div>
 
-        {/* Calories */}
 
         <div className="p-6">
           <p className="text-sm text-[#8C929D]">Calories</p>
@@ -66,11 +60,10 @@ const MyPlanPage = () => {
         </div>
       </div>
 
-      {/* Tabs */}
 
       <div className="mt-7 flex items-center justify-between">
         <div className="flex rounded-lg border border-[#252A33] bg-[#15181E] p-1">
-          {/* Today's Plan */}
+
 
           <button
             onClick={() => setActiveTab("plan")}
@@ -83,7 +76,6 @@ const MyPlanPage = () => {
             Today&apos;s Plan
           </button>
 
-          {/* Saved */}
 
           <button
             onClick={() => setActiveTab("saved")}
@@ -96,9 +88,13 @@ const MyPlanPage = () => {
             Saved
           </button>
         </div>
-      </div>
 
-      {/* Cards */}
+        <div>
+            <p>Sort By</p>
+            
+        </div>
+
+      </div>
 
       <div className="mt-5 space-y-4">
         {currentData.length === 0 ? (
@@ -122,7 +118,6 @@ const MyPlanPage = () => {
               key={fitLog.id}
               className="flex flex-col gap-5 rounded-xl border border-[#252A33] bg-[#15181E] p-4 md:flex-row md:items-center"
             >
-              {/* Image */}
 
               <Image
                 src={fitLog.image}
