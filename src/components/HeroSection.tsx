@@ -11,7 +11,7 @@ const HeroSection = () => {
           <h1>TRAIN WITH INTENT. LOG EVERY SET.</h1>
           <p>
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-            into todays plan, and watch the weeks work add up.
+            into today's plan, and watch the week's work add up.
           </p>
           <button>
             BROWSE WORKOUTS
