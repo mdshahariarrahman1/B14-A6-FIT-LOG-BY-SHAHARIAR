@@ -26,7 +26,7 @@ const FitLogData = async() => {
             <p className="text-[#9CA3AF] text-[14px] leading-5">Twelve lifts covering every major muscle group.</p>
         </div>
 
-        <div>
+        <div className=" grid grid-cols-3 gap-6 mb-16">
             {
                 fil.map(filLog => <FitLogCard key={filLog.id} filLog={filLog} />)
             }

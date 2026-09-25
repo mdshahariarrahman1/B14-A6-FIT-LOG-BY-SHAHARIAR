@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Oswald } from 'next/font/google'
 import "./globals.css";
 import NavbarPage from "@/components/Navbar";
+import FooterPage from "@/components/FooterPage";
+
 
 
 const oswald = Oswald({
@@ -24,8 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         
           <NavbarPage/>
-        
        <main>{children}</main> 
+
+       <FooterPage/>
       </body>
     </html>
   );
