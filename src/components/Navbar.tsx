@@ -16,7 +16,7 @@ const NavbarPage = () => {
 
   return (
     <>
-      <nav className=" flex justify-between items-center py-6.5 px-6">
+      <nav className=" container mx-auto flex justify-between items-center py-6.5 px-6 mb-12">
         <div className="flex items-center gap-2.5">
           <Image src={Logo} alt="NavBar_Logo"></Image>
           <p className="text-[#FFFFFF] font-bold text-[18px]">FITLOG</p>
