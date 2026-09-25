@@ -6,10 +6,10 @@ const NavbarPage = () => {
   const Links = (
     <>
       <li className="py-1.5 px-4.5 text-[#C2F800] bg-[#1A2312] rounded-full">
-        <Link href={""}>Workouts</Link>
+        <Link href={"/workouts"}>Workouts</Link>
       </li>
       <li className="py-1.5 px-4">
-        <Link href={""}>My Plan</Link>
+        <Link href={"/my_plan"}>My Plan</Link>
       </li>
     </>
   );

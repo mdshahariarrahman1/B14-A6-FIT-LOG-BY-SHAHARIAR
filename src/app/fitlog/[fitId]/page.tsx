@@ -1,5 +1,7 @@
+import AddToPlan from "@/components/FitLog_Details_Button/AddToButton";
+import SaveForLater from "@/components/FitLog_Details_Button/SaveButton";
 import { IfitLogType } from "@/type/type";
-import { CalendarPlus, Bookmark } from "lucide-react";
+import {  Bookmark } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -136,15 +138,10 @@ const FitLogReviewPage = async ({ params }: IFitLogReviewPage) => {
           </div>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <button className="flex items-center justify-center gap-2 rounded-lg bg-[#B7F000] px-5 py-3 text-sm font-semibold text-black transition duration-300 cursor-pointer hover:bg-[#A8DF00]">
-              <CalendarPlus size={16} />
-              Add to today&apos;s plan
-            </button>
+            
+            <AddToPlan fitLog={fitLog} />
 
-            <button className="flex items-center justify-center gap-2 rounded-lg border border-[#343A45] px-5 py-3 text-sm font-medium text-white transition duration-300 cursor-pointer hover:bg-[#171A20]">
-              <Bookmark size={16} />
-              Save for later
-            </button>
+            <SaveForLater fitLog={fitLog} />
           </div>
         </div>
       </div>

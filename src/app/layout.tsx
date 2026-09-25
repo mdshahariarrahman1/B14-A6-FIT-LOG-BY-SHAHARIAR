@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 
-import { Oswald } from 'next/font/google'
+import { Oswald } from "next/font/google";
 import "./globals.css";
 import NavbarPage from "@/components/Navbar";
 import FooterPage from "@/components/FooterPage";
-
-
+import FitLogProvider from "@/context/FitLogContext";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -19,16 +18,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${oswald.variable}`}
-    >
+    <html lang="en" className={`${oswald.variable}`}>
       <body className="min-h-full flex flex-col">
-        
-          <NavbarPage/>
-       <main>{children}</main> 
 
-       <FooterPage/>
+      <FitLogProvider>
+
+        <NavbarPage />
+
+        <main>{children}</main>
+
+        <FooterPage />
+      </FitLogProvider>
       </body>
     </html>
   );

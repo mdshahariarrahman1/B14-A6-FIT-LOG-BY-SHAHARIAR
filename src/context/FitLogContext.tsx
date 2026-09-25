@@ -11,10 +11,9 @@ interface FitLogContextType {
   setSaved: React.Dispatch<React.SetStateAction<IfitLogType[]>>;
 }
 
-export const FitLogContext =
-  createContext<FitLogContextType | null>(null);
+export const FitLogContext = createContext<FitLogContextType | null>(null);
 
-function FitLogProvider({ children }: { children: ReactNode }) {
+const FitLogProvider = ({ children }: { children: ReactNode })=> {
   const [plan, setPlan] = useState<IfitLogType[]>([]);
   const [saved, setSaved] = useState<IfitLogType[]>([]);
 
