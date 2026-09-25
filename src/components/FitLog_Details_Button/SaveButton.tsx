@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 import { FitLogContext } from "@/context/FitLogContext";
 import { IfitLogType } from "@/type/type";
+import { Bounce, toast } from "react-toastify";
 
 interface SaveForLaterProps {
   fitLog: IfitLogType;
@@ -21,6 +22,17 @@ const SaveForLater = ({ fitLog }: SaveForLaterProps) => {
 
   const handleSave = () => {
     setSaved([...saved, fitLog]);
+    toast.success(`${fitLog.name}successfully saved 🦄`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   return (

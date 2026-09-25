@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 import { FitLogContext } from "@/context/FitLogContext";
 import { IfitLogType } from "@/type/type";
+import { Bounce, toast } from "react-toastify";
 
 interface AddToPlanProps {
   fitLog: IfitLogType;
@@ -21,6 +22,18 @@ const AddToPlan = ({ fitLog }: AddToPlanProps) => {
 
   const handleAddPlan = () => {
     setPlan([...plan, fitLog]);
+
+    toast.success(`${fitLog.name}successfully add 🦄`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   return (
@@ -29,7 +42,6 @@ const AddToPlan = ({ fitLog }: AddToPlanProps) => {
       className="flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#B7F000] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-[#A8DF00]"
     >
       <CalendarPlus size={16} />
-
       Add to today&apos;s plan
     </button>
   );

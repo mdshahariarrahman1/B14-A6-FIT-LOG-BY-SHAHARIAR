@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FitLogContext } from "@/context/FitLogContext";
 import { Check, ChevronDown, X } from "lucide-react";
+import { Bounce, toast } from "react-toastify";
 
 type SortType = "duration" | "calories" | "rating";
 
@@ -26,6 +27,18 @@ const MyPlanPage = () => {
     } else {
       setSaved((prev) => prev.filter((item) => item.id !== id));
     }
+
+    toast.warn(`${plan.map(iten => iten.name)} Remove 🦄`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   const currentData = activeTab === "plan" ? plan : saved;
@@ -87,7 +100,7 @@ const MyPlanPage = () => {
         <div className="flex rounded-lg border border-[#252A33] bg-[#15181E] p-1">
           <button
             onClick={() => setActiveTab("plan")}
-            className={`rounded-md px-5 py-2 text-sm ${
+            className={`rounded-md px-5 py-2 text-sm cursor-pointer ${
               activeTab === "plan"
                 ? "bg-[#252A33] text-white"
                 : "text-[#8C929D]"
@@ -98,7 +111,7 @@ const MyPlanPage = () => {
 
           <button
             onClick={() => setActiveTab("saved")}
-            className={`rounded-md px-5 py-2 text-sm ${
+            className={`rounded-md px-5 py-2 text-sm cursor-pointer ${
               activeTab === "saved"
                 ? "bg-[#252A33] text-white"
                 : "text-[#8C929D]"
@@ -140,7 +153,7 @@ const MyPlanPage = () => {
             </p>
 
             <Link
-              href="/fitLog"
+              href="/fitlog"
               className="mt-5 rounded-lg bg-[#B7F000] px-6 py-3 text-sm font-semibold text-black"
             >
               Go to workouts
@@ -191,12 +204,12 @@ const MyPlanPage = () => {
                 Mark as Done
               </Link>
 
-            <button
-            onClick={()=> handleRemove(fitLog.id)} 
-            className="text-[#FFFFFF] cursor-pointer">
+              <button
+                onClick={() => handleRemove(fitLog.id)}
+                className="text-[#FFFFFF] cursor-pointer"
+              >
                 <X size={26} />
-            </button>
-
+              </button>
             </div>
           ))
         )}

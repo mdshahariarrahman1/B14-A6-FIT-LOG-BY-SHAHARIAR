@@ -5,6 +5,7 @@ import "./globals.css";
 import NavbarPage from "@/components/Navbar";
 import FooterPage from "@/components/FooterPage";
 import FitLogProvider from "@/context/FitLogContext";
+import { ToastContainer } from "react-toastify";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
 
       <FitLogProvider>
+        <ToastContainer />
 
         <NavbarPage />
 
