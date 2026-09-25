@@ -3,12 +3,15 @@
 import { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { FitLogContext } from "@/context/FitLogContext";
+import { ChevronDown } from "lucide-react";
+
+type SortType = "duration" | "calories" | "rating";
 
 const MyPlanPage = () => {
   const context = useContext(FitLogContext);
 
+  const [sortBy, setSortBy] = useState<SortType>("duration");
   const [activeTab, setActiveTab] = useState("plan");
 
   if (!context) {
@@ -19,10 +22,24 @@ const MyPlanPage = () => {
 
   const currentData = activeTab === "plan" ? plan : saved;
 
+  const sortedData = [...currentData].sort((a, b) => {
+    if (sortBy === "duration") {
+      return Number(a.duration) - Number(b.duration);
+    }
+
+    if (sortBy === "calories") {
+      return Number(b.caloriesBurned) - Number(a.caloriesBurned);
+    }
+
+    if (sortBy === "rating") {
+      return Number(b.rating) - Number(a.rating);
+    }
+
+    return 0;
+  });
+
   return (
     <section className="container mx-auto mb-14 px-4 py-10">
-
-
       <h1 className="text-4xl font-bold text-white">MY PLAN</h1>
 
       <p className="mt-2 text-sm text-[#9CA3AF]">
@@ -30,8 +47,7 @@ const MyPlanPage = () => {
       </p>
 
       <div className="mt-6 grid grid-cols-1 rounded-2xl border border-[#252A33] bg-[#15181E] md:grid-cols-3">
-
-        <div className="border-b border-[#252A33] p-6 md:border-b-0 md:border-r">
+        <div className="border-b border-[#252A33] p-6 md:border-r md:border-b-0">
           <p className="text-sm text-[#8C929D]">Exercises</p>
 
           <p className="mt-1 text-4xl font-bold text-[#B7F000]">
@@ -39,14 +55,13 @@ const MyPlanPage = () => {
           </p>
         </div>
 
-        <div className="border-b border-[#252A33] p-6 md:border-b-0 md:border-r">
+        <div className="border-b border-[#252A33] p-6 md:border-r md:border-b-0">
           <p className="text-sm text-[#8C929D]">Minutes</p>
 
           <p className="mt-1 text-4xl font-bold text-white">
             {plan.reduce((total, item) => total + Number(item.duration), 0)}
           </p>
         </div>
-
 
         <div className="p-6">
           <p className="text-sm text-[#8C929D]">Calories</p>
@@ -60,11 +75,8 @@ const MyPlanPage = () => {
         </div>
       </div>
 
-
       <div className="mt-7 flex items-center justify-between">
         <div className="flex rounded-lg border border-[#252A33] bg-[#15181E] p-1">
-
-
           <button
             onClick={() => setActiveTab("plan")}
             className={`rounded-md px-5 py-2 text-sm ${
@@ -75,7 +87,6 @@ const MyPlanPage = () => {
           >
             Today&apos;s Plan
           </button>
-
 
           <button
             onClick={() => setActiveTab("saved")}
@@ -89,11 +100,26 @@ const MyPlanPage = () => {
           </button>
         </div>
 
-        <div>
-            <p>Sort By</p>
-            
-        </div>
+        <div className="flex items-center gap-2">
+          <p className="text-sm text-[#8C929D]">Sort By</p>
 
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as SortType)}
+              className="appearance-none rounded-lg border border-[#252A33] bg-[#15181E] py-2 pl-4 pr-10 text-sm text-white outline-none cursor-pointer"
+            >
+              <option value="duration">Duration</option>
+              <option value="calories">Calories</option>
+              <option value="rating">Rating</option>
+            </select>
+
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#8C929D]"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="mt-5 space-y-4">
@@ -113,12 +139,11 @@ const MyPlanPage = () => {
             </Link>
           </div>
         ) : (
-          currentData.map((fitLog) => (
+          sortedData.map((fitLog) => (
             <div
               key={fitLog.id}
               className="flex flex-col gap-5 rounded-xl border border-[#252A33] bg-[#15181E] p-4 md:flex-row md:items-center"
             >
-
               <Image
                 src={fitLog.image}
                 alt={fitLog.name}
@@ -126,8 +151,6 @@ const MyPlanPage = () => {
                 height={80}
                 className="h-20 w-30 rounded-lg object-cover"
               />
-
-              {/* Information */}
 
               <div className="flex-1">
                 <h2 className="text-lg font-bold text-white">{fitLog.name}</h2>
@@ -144,9 +167,6 @@ const MyPlanPage = () => {
                   <span>⭐ {fitLog.rating}</span>
                 </div>
               </div>
-
-              {/* View Details */}
-
               <Link
                 href={`/fitLog/${fitLog.id}`}
                 className="rounded-lg border border-[#343A45] px-5 py-2 text-center text-sm text-white hover:bg-[#20242B]"
