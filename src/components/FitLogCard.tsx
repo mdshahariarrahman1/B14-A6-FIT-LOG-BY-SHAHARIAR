@@ -11,7 +11,7 @@ interface fitLogCatdType {
 const FitLogCard = ({ filLog }: fitLogCatdType) => {
   return (
 
-    <Link href={""}>
+    <Link href={`/fitlog/${filLog.id}`}>
 
     <div className="w-full h-100 overflow-hidden rounded-2xl border border-[#30343D] bg-[#15171D] text-[#FFFFFF] cursor-pointer hover:-translate-y-1.5 transition-transform duration-300">
       <div className="relative h-52 w-full">
