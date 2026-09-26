@@ -9,7 +9,7 @@ The project is build with Next.js and Tailwind CSS with a clean and responsive d
 
 🔗 **Live Link:** Add your Vercel live link here
 
-🔗 **GitHub Repository:** https://github.com/ProgrammingHero1/B14-A6-Fit-Log
+🔗 **GitHub Repository:** https://github.com/mdshahariarrahman1/B14-A6-FIT-LOG-BY-SHAHARIAR
 
 ---
 
