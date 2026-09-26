@@ -222,9 +222,9 @@ const MyPlanPage = () => {
 
                 <button
                   onClick={() => handleRemove(fitLog.id)}
-                  className="cursor-pointer  md:px-0 md:py-0 text-[#FFFFFF]"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl border border-red-500/30 bg-[#111315] text-red-500 transition-all duration-200 hover:border-red-500/60 hover:bg-red-500/10 cursor-pointer"
                 >
-                  <X size={26} />
+                  <X size={20} strokeWidth={2.5} />
                 </button>
               </div>
             </div>
