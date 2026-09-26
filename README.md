@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ B14-A6-FIT-LOG
 
-## Getting Started
+**Fit Log** is a simple workout planning and tracking web application.
+Users can explore different workout exercises, add lifts to **My Plan**, and manage their daily workout plan easily.
 
-First, run the development server:
+The project is build with Next.js and Tailwind CSS with a clean and responsive design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Live Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔗 **Live Link:** Add your Vercel live link here
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🔗 **GitHub Repository:** https://github.com/ProgrammingHero1/B14-A6-Fit-Log
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Key Features
 
-To learn more about Next.js, take a look at the following resources:
+* **Workout Library**
+  Users can browse workout/lift information from the workout library.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **My Plan**
+  Users can add their favorite lifts to today's workout plan and remove them when needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **LocalStorage Data**
+  Saved plan data is stored in `localStorage`, so the workout plan stays available even after page reload.
 
-## Deploy on Vercel
+* **Workout Search**
+  Users can search My Plan and library entries by **workout name or tag** to find exercises quickly.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **5 Lifts Limit**
+  Users can add maximum **5 lifts** to today's plan. The "Add to today's plan" button is disabled when the limit is reached.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Technologies Used
+
+| Technology             | Purpose                                    |
+| ---------------------- | ------------------------------------------ |
+| **Next.js**            | Build the user interface and application   |
+| **Next.js App Router** | Handle page navigation and routing         |
+| **TypeScript**         | Write type-safe and more maintainable code |
+| **Tailwind CSS**       | Styling and responsive design              |
+| **LocalStorage**       | Store workout plan data in the browser     |
+| **React**              | Build reusable UI components               |
+
+---
+
+## 📱 Responsive Design
+
+The website is responsive for:
+
+* 📱 Mobile devices
+
+The UI is designed to be simple and easy to use on different screen sizes.
+
+---
+
+## 📂 Main Features
+
+### 🏋️ Workout Library
+
+Browse available workout exercises and see useful information about each workout.
+
+### 📋 My Plan
+
+Add exercises to your daily workout plan and manage the selected lifts from one place.
+
+### 🔍 Search
+
+Search workout by **name or tag** from the library and My Plan section.
+
+### 💾 Persistent Data
+
+The selected workout plan is saved in browser `localStorage`. So if the page is refresh, the saved data will still be there.
+
+### 🔢 Plan Limit
+
+A user can select maximum **5 lifts** for today's plan. After reaching 5 lifts, adding more lifts is disabled.
+
+---
+
+## 👨‍💻 Developer
+
+**Md Shahariar Rahman Shifat**
+
+Full-Stack Web Developer
+
+Built with while learning and practicing Next.js.
