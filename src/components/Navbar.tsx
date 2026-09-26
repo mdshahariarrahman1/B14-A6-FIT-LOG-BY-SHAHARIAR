@@ -78,7 +78,7 @@ const NavbarPage = () => {
             </div>
           </Link>
 
-          <Link href="/saved">
+          <Link href="/my_plan">
             <div className="text-[#9CA3AF] flex items-center">
               <p className="text-[13px] md:text-[16px] pr-2 md:pr-3 font-medium">
                 Saved
