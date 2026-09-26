@@ -21,6 +21,19 @@ const SaveForLater = ({ fitLog }: SaveForLaterProps) => {
   const { saved, setSaved } = context;
 
   const handleSave = () => {
+    const alreadySaved = saved.find((item) => item.id === fitLog.id);
+
+    if (alreadySaved) {
+      toast.error(`${fitLog.name} already saved 🦄`, {
+        position: "top-right",
+        autoClose: 5000,
+        theme: "dark",
+        transition: Bounce,
+      });
+
+      return;
+    }
+
     setSaved([...saved, fitLog]);
     toast.success(`${fitLog.name}successfully saved 🦄`, {
       position: "top-right",
@@ -41,7 +54,6 @@ const SaveForLater = ({ fitLog }: SaveForLaterProps) => {
       className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#343A45] px-5 py-3 text-sm font-medium text-white transition duration-300 hover:bg-[#171A20]"
     >
       <Bookmark size={16} />
-
       Save for later
     </button>
   );

@@ -21,6 +21,19 @@ const AddToPlan = ({ fitLog }: AddToPlanProps) => {
   const { plan, setPlan } = context;
 
   const handleAddPlan = () => {
+    const alreadyAdded = plan.find((item) => item.id === fitLog.id);
+
+    if (alreadyAdded) {
+      toast.error(`${fitLog.name} already added 🦄`, {
+        position: "top-right",
+        autoClose: 5000,
+        theme: "dark",
+        transition: Bounce,
+      });
+
+      return;
+    }
+
     setPlan([...plan, fitLog]);
 
     toast.success(`${fitLog.name}successfully add 🦄`, {
