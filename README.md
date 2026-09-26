@@ -4,7 +4,7 @@ Fit Log is a simple workout planning web application where users can explore wor
 
 ## 🚀 Live Project
 
-🔗 **Live Link:** Add your Vercel live link here
+🔗 **Live Link:** https://b14-a6-fit-log-by-shahariar.vercel.app/
 
 🔗 **GitHub Repository:** https://github.com/mdshahariarrahman1/B14-A6-FIT-LOG-BY-SHAHARIAR
 
